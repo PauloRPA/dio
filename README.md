@@ -1,3 +1,6 @@
 # Repositorio dedicado ao DIO
 
-Projeto pedido na trilha java da dio.
+Projeto dedicado aos projetos pedidos pela DIO.
+
+Este repositorio esta organizado como:
+    src -> nome do bootcamp -> projeto
