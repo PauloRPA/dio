@@ -2,6 +2,11 @@ import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Esta classe foi criada á pedido do Lab Project
+ * chamado 'Simulando Uma Conta Bancária Através Do Terminal/Console'
+ * dentro da categoria 'Sintaxe básica com Java'
+ */
 public class ContaTerminal {
     public static void main(String[] args) {
 
