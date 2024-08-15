@@ -1,0 +1,38 @@
+@startuml
+class "Iphone"
+    "Iphone" : + adicionarAplicativo(Aplicativo app)
+    "Iphone" : + removerAplicativo(Aplicativo app)
+    "Iphone" : + listarAplicativos()
+class "Telefone"
+    "Telefone" : + ligar()
+    "Telefone" : + atender()
+    "Telefone" : + iniciarCorreioVoz()
+interface "Navegador"
+    "Navegador" : + exibirPagina()
+    "Navegador" : + adicionarNovaAba()
+    "Navegador" : + atualizarPagina()
+abstract "MusicPlayer"
+    "MusicPlayer" : + tocar()
+    "MusicPlayer" : + pausar()
+    "MusicPlayer" : + selecionarMusica()
+class "Musicas"
+
+abstract "Aplicativo" <<abstract>>
+    "Aplicativo" : + nome
+    "Aplicativo" : + abrir()
+    "Aplicativo" : + fechar()
+
+"Iphone" o--> "0..*" "Aplicativo"
+
+"Aplicativo" <|-- "Telefone"
+"Aplicativo" <|-- "MusicPlayer"
+
+"MusicPlayer" <|-- "Musicas"
+"MusicPlayer" <|-- "Spotify"
+
+"Aplicativo" <|-- "Safari"
+"Aplicativo" <|-- "Firefox"
+"Navegador" <|-- "Safari"
+"Navegador" <|-- "Firefox"
+
+@enduml
