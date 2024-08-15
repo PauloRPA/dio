@@ -1,4 +1,4 @@
-package src.claro_java_springboot.code_challange.explorando_servicos_telefonia;
+package claro_java_springboot.code_challange.explorando_servicos_telefonia;
 
 import java.util.Scanner;
 
@@ -8,6 +8,7 @@ import java.util.Scanner;
  * dentro da categoria 'Sintaxe básica com Java'
  */
 public class VerificacaoServico {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

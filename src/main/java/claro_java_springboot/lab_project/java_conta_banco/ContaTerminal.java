@@ -1,3 +1,5 @@
+package claro_java_springboot.lab_project.java_conta_banco;
+
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;

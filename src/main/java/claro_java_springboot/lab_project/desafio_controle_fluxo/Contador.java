@@ -1,3 +1,5 @@
+package claro_java_springboot.lab_project.desafio_controle_fluxo;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
