@@ -21,7 +21,7 @@ import claro_java_springboot.lab_project.bootcamp_com_oo.bootcamp.Usuario;
  * adicione os conteúdos aos bootcamps e inscreva os usuários
  * no bootcamp. A inscrição de um usuário é como uma matrícula essencialmente,
  * e representa a relação entre o usuário e o bootcamp, incluindo o progresso
- * do usuário pelo curso,data de início e termnino do curso e sua conclusão.
+ * do usuário pelo curso,data de início e termino do curso e sua conclusão.
  * Para receber uma atividade deve-se pedi-la para o objeto de Inscricao
  * que guarda o progresso do usuário pelo curso.
  * Sempre que uma atividade 'concluida' é entregue o usuário progride no curso
