@@ -19,6 +19,14 @@ public class Sudoku {
         }
     }
 
+    public Sudoku(List<Integer> board) {
+        this();
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            Integer number = board.get(i);
+            this.board.add(i, new Cell(number, number != 0));
+        }
+    }
+
     public boolean set(int row, int col, int value) {
         return get(row, col)
                 .map(cell -> cell.setNumber(value))
@@ -84,4 +92,17 @@ public class Sudoku {
         return board;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder boardString = new StringBuilder();
+        for (int i = 0; i < BOARD_HEIGHT; i++) {
+            for (int j = 0; j < BOARD_WIDTH; j++) {
+                Cell cell = get(indexForCoord(i, j));
+                int number = isNull(cell) ? -1 : cell.getNumber();
+                boardString.append(String.format("[%s]", number == 0 ? " " : number));
+            }
+            boardString.append("\n");
+        }
+        return boardString.toString();
+    }
 }
