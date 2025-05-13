@@ -16,6 +16,7 @@ public class SudokuTest {
     public static final String SUDOKU_PUZZLE_PATH = "/sudoku";
     public static final String SUDOKU_INVALID_PUZZLE_PATH = "/sudoku/invalid";
     public static final String SUDOKU_1 = "/1.txt";
+    public static final String SUDOKU_2 = "/2.txt";
     private static final String SUDOKU_COL = "/col.txt";
     private static final String SUDOKU_ROW = "/row.txt";
     private static final String SUDOKU_BLOCK = "/block.txt";
@@ -25,7 +26,7 @@ public class SudokuTest {
     private SudokuParser<InputStream> parser;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         sudoku = new Sudoku();
         parser = new TextMatrixSudokuParser();
     }
@@ -104,7 +105,7 @@ public class SudokuTest {
 
     @Test
     void testWhenCompleteShouldReturnFalse() {
-        String[] puzzles = { SUDOKU_COL, SUDOKU_ROW, SUDOKU_BLOCK };
+        String[] puzzles = {SUDOKU_COL, SUDOKU_ROW, SUDOKU_BLOCK};
         for (int i = 0; i < puzzles.length; i++) {
             assertFalse(parse(puzzles[i]).isComplete());
             assertFalse(parseInvalid(puzzles[i]).isComplete());
@@ -164,6 +165,16 @@ public class SudokuTest {
         }
     }
 
+    @Test
+    void testWhenSolveShouldReturnSucceed() {
+        sudoku = parse(SUDOKU_1);
+        Sudoku actual = sudoku.solve();
+        Sudoku expected = parse(SUDOKU_COMPLETE);
+
+        assertTrue(actual.isComplete());
+        assertEquals(expected, actual);
+    }
+
     private Sudoku parseInvalid(String file) {
         return parser.parse(SudokuTest.class.getResourceAsStream(SUDOKU_INVALID_PUZZLE_PATH + file));
     }
@@ -173,7 +184,7 @@ public class SudokuTest {
     }
 
     private void forEachCell(BiConsumer<Integer, Integer> action,
-            BiConsumer<Integer, Integer> asserts) {
+                             BiConsumer<Integer, Integer> asserts) {
         for (int i = 0; i < Sudoku.BOARD_WIDTH; i++) {
             for (int j = 0; j < Sudoku.BOARD_HEIGHT; j++) {
                 action.accept(i, j);

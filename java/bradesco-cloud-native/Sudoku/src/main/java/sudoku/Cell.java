@@ -1,6 +1,10 @@
 package sudoku;
 
+import java.util.Objects;
+
 public class Cell {
+
+    public static final Cell EMPTY = new Cell(0, true);
 
     private int number;
     private final boolean[] marks;
@@ -102,4 +106,15 @@ public class Cell {
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Cell cell = (Cell) o;
+        return number == cell.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(number);
+    }
 }
